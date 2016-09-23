@@ -25,16 +25,16 @@ module.exports = {
           presets: ["es2015", "react", "react-hmre"]
         }
       },
-      // {
-      //   test: /\.scss$/,
-      //   loaders: ['style', 'css', 'sass']
-      // }
-      ,
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('css!sass')
+        loaders: ['style', 'css', 'sass']
       }
+      // ,
+      // {
+      //   test: /\.scss$/,
+      //   exclude: /node_modules/,
+      //   loader: ExtractTextPlugin.extract('css!sass')
+      // }
     ]
   },
   sassLoader: {

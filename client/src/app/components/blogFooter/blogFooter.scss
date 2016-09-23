@@ -1,0 +1,11 @@
+$title-color: red;
+footer {
+    color: red;
+}
+.blog-footer {
+    color: red;
+
+    .footer {
+       color: $title-color;
+    }
+}
