@@ -7,18 +7,17 @@ var pathToBourbon = require('node-bourbon').includePaths;
 
 module.exports = {
   entry: [__dirname + "/src/app/index.js",
-   '!!style!css!react-mdl/extra/material.min.css',  
-    'react-mdl/extra/material.min.js'],              
+    '!!style!css!react-mdl/extra/material.min.css',
+    'react-mdl/extra/material.min.js'],
   output: {
     path: __dirname + "/src/build/",
     filename: "bundle.js",
     // publicPath: "/src/app/"
   },
-
   module: {
     loaders: [
       {
-        test: /\.js$/,
+         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel",
         include: __dirname,

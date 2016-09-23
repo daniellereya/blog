@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
+import Header from "./header/Header.jsx";
+import Footer from "./footer/Footer.jsx";
 
 export default class MainLayout extends Component {
   constructor(props) {
@@ -40,14 +40,6 @@ export default class MainLayout extends Component {
         <Header title="Daniel"/>
         <Footer/>
       </div>
-      // <header>
-      //   <div>Daniel  doing its thing with React and ES2015</div>
-      //   <div>Daniel  doing its thing with React and ES2015</div>
-      //   <div>Daniel  doing its thing with React and ES2015</div>
-      //   <div>{counter}</div>
-      //   <div>{counter}</div>
-      //   <div>Daniel</div>
-      // </header>
     );
   }
 }

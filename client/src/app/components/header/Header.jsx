@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import header from './header.scss';
 // import { Button } from 'react-bootstrap';
-import ImageAndText from './../shared/imageAndText/imageAndText.js'
+import ImageAndText from './../shared/imageAndText/imageAndText.js';
 
 export default class Header extends Component {
 
