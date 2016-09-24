@@ -6,12 +6,7 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
   }
-  // key={post.id} 
-  //                                 caption={image.caption} 
-  //                                 imageSrc={image.src} 
-  //                                 title={post.title}
-  //                                 content={post.content}
-  //                                 comments={post.comments}
+  
   render() {
     const { props } = this ;
     return (
@@ -19,13 +14,14 @@ export default class Header extends Component {
         <div className='photo-container'>
           <Photo src={props.imageSrc} caption={props.caption}/>
         </div>
-        <div className='title'>
-          {props.title}
-        </div>
         <div className='content'>
-          {props.content}
+          <div className='title'>
+            {props.title}
+          </div>
+          <div className='content'>
+            {props.content}
+          </div>
         </div>
-        
         
       </div>
     );
