@@ -1,0 +1,40 @@
+@import "bourbon";
+@import './../../theme/theme-constants.scss';
+
+$animation-duration: 0.4s;
+$max-height: rem(500px);
+
+.photo {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($main-color, 0.95);
+    
+    &:hover {
+        .caption {
+            opacity: 1;
+            left: rem(20px);
+            
+            @include transition(all $animation-duration);
+        }    
+
+        .image {
+
+        }
+    }
+
+    .image {
+        object-fit: contain;
+        max-height: $max-height;
+        width: 100%;
+        border-bottom: rem(5px) solid white; 
+    }
+
+    .caption {
+        position: absolute;
+        bottom: rem(10px);
+        left: rem(-10px);
+        @include transition(all $animation-duration);
+        opacity: 0;
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
