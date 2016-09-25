@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Photo from './../photo/Photo.jsx';
+import CommentsSection from './../commentsSection/commentsSection.jsx';
 import post from './post.scss';
 export default class Header extends Component {
 
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     const { props } = this ;
     return (
@@ -18,11 +19,11 @@ export default class Header extends Component {
           <div className='title'>
             {props.title}
           </div>
-          <div className='content'>
+          <div className='body'>
             {props.content}
           </div>
         </div>
-        
+        <CommentsSection comments={props.comments}></CommentsSection>
       </div>
     );
   }

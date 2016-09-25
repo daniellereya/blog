@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --progress --inline --hot"
   },
   "keywords": [],
-  "author": "",
+  "author": "Daniel Lereya",
+  "private": true,
   "license": "ISC",
   "dependencies": {
     "node-bourbon": "^4.2.8",

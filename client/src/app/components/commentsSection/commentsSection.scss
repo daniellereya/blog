@@ -1,0 +1,15 @@
+ @import "bourbon";
+ $commenter-image-size: rem(30px);
+ 
+ .comments-section {
+    .comment {
+        .commenter {
+
+        }
+
+        .position {
+            font-size: rem(12px);
+            color: darkgray;
+        }
+    }
+ }

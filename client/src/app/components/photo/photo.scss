@@ -23,6 +23,7 @@ $max-height: rem(500px);
     }
 
     .image {
+        //increases or decreases the size of the image to fill the box whilst preserving its aspect-ratio.
         object-fit: contain;
         max-height: $max-height;
         width: 100%;

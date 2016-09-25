@@ -11,7 +11,7 @@ export default class BlogFooter extends Component {
    render() {
 
     return (
-      <div className="blogFooter">
+      <div className="blog-footer">
        <Footer className="footer" size="mini">
               <FooterSection  type="left" logo="Daniel Lereya's Blog (c)">
                   <FooterLinkList>
