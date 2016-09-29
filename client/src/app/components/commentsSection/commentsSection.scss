@@ -12,4 +12,24 @@
             color: darkgray;
         }
     }
+
+    .comment-box {
+        border: rem(1px) solid #3f51b5; 
+        max-width: rem(600px);
+        padding: rem(16px);
+        margin: rem(16px);
+
+        .commenter-textfield {
+            display: block; 
+            max-width: rem(100px);
+        }
+
+        .comment-textfield {
+            width: 100%;
+        }
+
+        .comment-btn {
+            display: block;
+        }
+    }
  }
