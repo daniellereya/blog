@@ -43,7 +43,7 @@ export default class CommentsSection extends Component {
   }
 
   render() {
-    const { comments } = this.props;
+    const comments = this.props.comments;
     const { newComment } = this.state;
     return (
       <div className='comments-section'>
@@ -51,9 +51,9 @@ export default class CommentsSection extends Component {
         <List>
         {
           comments.map(function(comment) {
-            return <ListItem className='comment' key={comment.id} threeLine>
-                     <ListItemContent avatar='personc' subtitle={comment.text}>
-                          <span className='commenter'>{comment.commenter}</span> <span className='position'>{comment.position}</span>    
+            return <ListItem className='comment' key={comment.get("id")} threeLine>
+                     <ListItemContent avatar='personc' subtitle={comment.get("text")}>
+                          <span className='commenter'>{comment.get("commenter")}</span> <span className='position'>{comment.get("position")}</span>    
                       </ListItemContent>
                    </ListItem>
           })
