@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyString
+  commenter: MyString
+  position: MyString
+  id: 1
+
+two:
+  text: MyString
+  commenter: MyString
+  position: MyString
+  id: 1
