@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 
-export default class RestCaller {
+class RestCaller {
     constructor() {
         axios.defaults.baseURL = 'http://localhost:3000';
     }
@@ -29,3 +29,5 @@ export default class RestCaller {
             .catch(errorCallback);
     }
 }
+
+export const restCaller = new RestCaller();
