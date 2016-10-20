@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Photo from './../photo/Photo.jsx';
-import CommentsSection from './../commentsSection/commentsSection.jsx';
+import { CommentsSectionContainer } from './../commentsSection/commentsSection.jsx';
 import post from './post.scss';
 export default class Header extends Component {
 
@@ -23,10 +23,8 @@ export default class Header extends Component {
             {props.content}
           </div>
         </div>
-        <CommentsSection comments={props.comments}></CommentsSection>
+        <CommentsSectionContainer postId={props.postId} comments={props.comments}></CommentsSectionContainer>
       </div>
     );
   }
 }
-
-// imageSrc="/assets/profile.jpg"

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import header from './header.scss';
 
 export default class Header extends Component {

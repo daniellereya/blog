@@ -1,25 +1,38 @@
 import React, { Component } from 'react';
 import commentsSection from './commentsSection.scss';
 import { List, ListItem, ListItemContent, Textfield, Button} from 'react-mdl';
+import { connect } from 'react-redux';
+import { Map } from 'immutable';
+import * as actionCreators from '../../actionCreators';
 
-export default class CommentsSection extends Component {
+
+export class CommentsSection extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { newComment: {
-        name: "",
-        comment: ""
+    this.state = {
+      newComment: {
+        commenter: "",
+        text: ""
       }
     };
-    this.canComment = this.canComment.bind(this);
+    // this.canComment = this.canComment.bind(this);
     this.handleCommenterNameChange = this.handleCommenterNameChange.bind(this);
     this.handleCommentChange = this.handleCommentChange.bind(this);
   }
 
+  initCommentBox() {
+    this.setState({
+      newComment: {
+        commenter: "",
+        text: ""
+      }
+    });
+  }
+
   canComment() {
     const { newComment } = this.state;
-    console.log(newComment);
-    return newComment.name !== "" && newComment.comment !== "";
+    return newComment.commenter !== "" && newComment.text !== "";
   }
 
   handleCommenterNameChange(e) {
@@ -36,10 +49,10 @@ export default class CommentsSection extends Component {
     const commentChange = type === "comment";
     this.setState({
       newComment: {
-        name: commentChange ? newComment.name : newValue,
-        comment: commentChange ? newValue : newComment.comment,
+        commenter: commentChange ? newComment.commenter : newValue,
+        text: commentChange ? newValue : newComment.text,
       }
-   });
+    });
   }
 
   render() {
@@ -47,44 +60,60 @@ export default class CommentsSection extends Component {
     const { newComment } = this.state;
     return (
       <div className='comments-section'>
-        
         <List>
-        {
-          comments.map(function(comment) {
-            return <ListItem className='comment' key={comment.get("id")} threeLine>
-                     <ListItemContent avatar='personc' subtitle={comment.get("text")}>
-                          <span className='commenter'>{comment.get("commenter")}</span> <span className='position'>{comment.get("position")}</span>    
-                      </ListItemContent>
-                   </ListItem>
-          })
-        }
+          {
+            comments.map(function (comment) {
+              return <ListItem className='comment' key={comment.get("id") } threeLine>
+                <ListItemContent avatar='personc' subtitle={comment.get("text") }>
+                  <span className='commenter'>{comment.get("commenter") }</span> <span className='position'>{comment.get("position") }</span>
+                </ListItemContent>
+              </ListItem>
+            })
+          }
         </List>
         <div className='comment-box'>
-            <Textfield
-                className='commenter-textfield'
-                onChange={() => {}}
-                label="Name"
-                floatingLabel
-                value={newComment.name}
-                onChange={this.handleCommenterNameChange}
-                
+          <Textfield
+            className='commenter-textfield'
+            onChange={() => { } }
+            label="Name"
+            floatingLabel
+            value={newComment.commenter}
+            onChange={this.handleCommenterNameChange}
+
             />
-            <Textfield 
-                className='comment-textfield'
-                onChange={() => {}}
-                label="Your thoughs..."
-                floatingLabel
-                rows={2}
-                value={newComment.comment}
-                onChange={this.handleCommentChange}
+          <Textfield
+            className='comment-textfield'
+            onChange={() => { } }
+            label="Your thoughs..."
+            floatingLabel
+            rows={2}
+            value={newComment.text}
+            onChange={this.handleCommentChange}
             />
-                
-            <Button raised colored ripple 
-                className='comment-btn'
-                disabled={!this.canComment()}
-                >Comment</Button>
+
+          <Button raised colored ripple
+            className='comment-btn'
+            disabled={!this.canComment() }
+            onClick={() => {
+              const lastCommentId = comments.get(comments.size -1).get("id");
+              newComment.id = lastCommentId + 1;
+              this.props.comment(newComment, this.props.postId)
+              this.initCommentBox();
+            }}
+            >Comment</Button>
         </div>
-    </div>
+      </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    someCustomProp: 1
+  };
+}
+
+export const CommentsSectionContainer = connect(
+  mapStateToProps,
+  actionCreators
+)(CommentsSection);

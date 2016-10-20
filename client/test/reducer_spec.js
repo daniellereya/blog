@@ -22,12 +22,12 @@ describe('reducer', () => {
                         content: 'Some nice content',
                         comments: List()
                     })
-                 )
+                )
             })
         };
         const nextState = reducer(initialState, action);
         expect(nextState).to.equal(fromJS({
-            posts: [ {
+            posts: [{
                 id: 1,
                 title: 'Blog 1',
                 image: {
@@ -36,7 +36,7 @@ describe('reducer', () => {
                 },
                 content: 'Some nice content',
                 comments: [
-                   
+
                 ]
             }]
         }));
@@ -110,6 +110,57 @@ describe('reducer', () => {
         }));
     });
 
+
+    it('handles COMMENT', () => {
+        const initialState = Map({
+            posts: List.of(
+                Map({
+                    id: 1,
+                    title: 'Blog 1',
+                    image: Map({
+                        src: 'src1',
+                        caption: 'Some nice caption for blog 1'
+                    }),
+                    content: 'Some nice content',
+                    comments: List()
+                })
+            )
+        });
+        const action = {
+            type: 'COMMENT',
+            actionData: {
+                postId: 1,
+                comment: {
+                    commenter: 'daniel',
+                    text: 'new test comment',
+                    position: 'test position',
+                    avatarSrc: 'test_src.jpg',
+                    id: 1
+                }
+            }
+        };
+
+        const nextState = reducer(initialState, action);
+        expect(nextState).to.equal(fromJS({
+            posts: [{
+                id: 1,
+                title: 'Blog 1',
+                image: {
+                    src: 'src1',
+                    caption: 'Some nice caption for blog 1'
+                },
+                content: 'Some nice content',
+                comments: [{
+                        text: 'new test comment',
+                        commenter: 'daniel',
+                        position: 'test position',
+                        avatarSrc: 'test_src.jpg',
+                        id: 1
+                    }
+                ]
+            }]
+        }));
+    });
 
 
 });

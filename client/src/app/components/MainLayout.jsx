@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Layout, Header, HeaderRow, Textfield, Navigation, Drawer, Content} from 'react-mdl';
+import { Layout, Header, HeaderRow, Textfield, Navigation, Content} from 'react-mdl';
 import BlogFooter from './blogFooter/BlogFooter.jsx';
 import Post from './post/Post.jsx';
 
@@ -36,11 +36,11 @@ export class MainLayout extends Component {
           <Content>
               <div className="page-content">
                   {
-                    
+                    posts === undefined ? null :
                     posts.map(function(post) {
                       const image = post.get("image");
-                      console.log("Post: " + post)
                       return <Post key={post.get("id")} 
+                                  postId={post.get("id")}
                                   caption={image.get("caption")} 
                                   imageSrc={image.get("src")} 
                                   title={post.get("title")}

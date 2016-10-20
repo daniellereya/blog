@@ -14,10 +14,11 @@ module.exports = {
     filename: "bundle.js",
     // publicPath: "/src/app/"
   },
+  devtool: 'inline-source-map',
   module: {
     loaders: [
       {
-         test: /\.jsx?$/,
+       test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel",
         include: __dirname,
