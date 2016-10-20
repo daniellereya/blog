@@ -13,6 +13,7 @@
   "private": true,
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.15.2",
     "immutable": "^3.8.1",
     "node-bourbon": "^4.2.8",
     "react": "^15.3.2",

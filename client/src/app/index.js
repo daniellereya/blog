@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducer';
 import remoteActionMiddleware from './remoteActionMiddleware';
 import { setState } from './actionCreators.js';
-
+import RestCaller from './network/restCaller.js';
 
 // creating a store with Middleware that intercepts action 
 // before their execution
@@ -15,6 +15,10 @@ const createStoreWithMiddleware = applyMiddleware(
 )(createStore);
 const store = createStoreWithMiddleware(reducer);
 // todo: get here the state from the server
+const restCaller = new RestCaller();
+const handler = r => console.log(r.data);
+restCaller.performRequest("GET", "/comments", handler, handler);
+
 const serverInitialDummyState = {
   posts: [{
     id: 1,
