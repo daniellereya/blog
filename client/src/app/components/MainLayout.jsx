@@ -36,7 +36,6 @@ export class MainLayout extends Component {
           <Content>
               <div className="page-content">
                   {
-                    posts === undefined ? null :
                     posts.map(function(post) {
                       const image = post.get("image");
                       return <Post key={post.get("id")} 

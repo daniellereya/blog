@@ -15,3 +15,10 @@ export function comment(comment, postId) {
         actionData
     };
 }
+
+export function fetchPosts(postId = null) {
+    return {
+        type: 'FETCH_POSTS',
+        postId: postId
+    };
+}
