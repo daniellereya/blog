@@ -19,3 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# ignore configuration files that contains sensitive data
+/config/database.yml
+/config/application.yml
